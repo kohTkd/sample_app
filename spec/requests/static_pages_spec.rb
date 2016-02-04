@@ -9,7 +9,7 @@ describe 'Static pages' do
   end
 
   describe 'Home page' do
-		before { visit root_path }
+		before { visit '/' }
 		let(:heading) {'Sample App'}
 		let(:page_title) {''}
 		it_behaves_like 'all static pages'
@@ -17,28 +17,28 @@ describe 'Static pages' do
   end
 
   describe 'Help page' do
-		before { visit help_path }
+		before { visit '/help' }
 		let(:heading) {'Help'}
 		let(:page_title) {'Help'}
 		it_behaves_like 'all static pages'
   end
 
   describe 'About page' do
-		before { visit about_path }
+		before { visit '/about' }
 		let(:heading) {'About Us'}
 		let(:page_title) {'About Us'}
 		it_behaves_like 'all static pages'
   end
 
   describe 'Contact page' do
-		before { visit contact_path }
+		before { visit '/contact' }
 		let(:heading) {'Contact'}
 		let(:page_title) {'Contact'}
 		it_behaves_like 'all static pages'
   end
 
 	it 'should have the right links on the layout' do
-		visit root_path
+		visit '/'
 		click_link 'About'
 		expect(page).to have_title(full_title('About Us'))
 		click_link 'Help'
